@@ -1,0 +1,252 @@
+var bio = {
+    "name" : "Dean Burr",
+    "role" : "Web Developer",
+    "contacts" : {
+        "mobile" : "123-123-4567",
+        "email" : "deanburrdesign@gmail.com",
+        "github" : "DBurro",
+        "twitter" : "@DeanBurr",
+        "location" : "Gladesville, Australia"
+    },
+    "welcomeMessage" : "Thanks for checking out my resume",
+    "skills" : ["HTML", "CSS", "JavaScript", "PHP"],
+    "bioPic": "images/me_cropped.jpg"
+};
+
+
+bio.display = function() {
+    var formattedRole =
+    HTMLheaderRole.replace("%data%", bio.role);
+    $("#header").prepend(formattedRole);
+
+var formattedName =
+    HTMLheaderName.replace("%data%", bio.name);
+    $("#header").prepend(formattedName);
+
+var formattedMobile =
+    HTMLmobile.replace("%data%", bio.contacts.mobile);
+    $("#topContacts").append(formattedMobile);
+    $("#footerContacts").append(formattedMobile);
+
+var formattedEmail =
+    HTMLemail.replace("%data%", bio.contacts.email);
+    $("#topContacts").append(formattedEmail);
+    $("#footerContacts").append(formattedEmail);
+
+var formattedGithub =
+    HTMLgithub.replace("%data%", bio.contacts.github);
+    $("#topContacts").append(formattedGithub);
+    $("#footerContacts").append(formattedGithub);
+
+var formattedTwitter =
+    HTMLtwitter.replace("%data%", bio.contacts.twitter);
+    $("#topContacts").append(formattedTwitter);
+    $("#footerContacts").append(formattedTwitter);
+
+var formattedLocation =
+    HTMLlocation.replace("%data%", bio.contacts.location);
+    $("#topContacts").append(formattedLocation);
+    $("#footerContacts").append(formattedLocation);
+
+var formattedPic =
+    HTMLbioPic.replace("%data%", bio.bioPic);
+    $("#header").append(formattedPic);
+
+var formattedWelcomeMessage =
+    HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+    $("#header").append(formattedWelcomeMessage);
+    
+};
+
+bio.display();
+
+bio.displaySkills = function() {
+    $("#header").append(HTMLskillsStart);
+    for (var skill in bio.skills) {     
+        var formattedSkills = HTMLskills.replace("%data%", bio.skills[skill]);
+        $("#skills").append(formattedSkills);
+    }
+};
+
+bio.displaySkills();
+
+//start work
+var work = {
+  "jobs": [
+    {
+      "employer": "Channel Nine",
+      "title": "Audio Assistant",
+      "location": "Sydney, Australia",
+      "dates": "10/14 - current",
+      "description": "Supervising and maintaining audio levels of live to air television programs."
+    },
+    {
+     "employer": "Channel Nine",
+      "title": "Stagehand/Assistant Floor Manager",
+      "location": "Sydney, Australia",
+      "dates": "10/12 - 10/14",
+      "description": "Preparing the physical sets for a variety of television programs, assisting camera personnel while on air."
+    }
+  ]
+};
+
+work.display = function() {
+for (var job in work.jobs) {
+    $("#workExperience").append(HTMLworkStart);
+
+    var formattedEmployer = 
+    HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+    
+    var formattedTitle = 
+    HTMLworkTitle.replace("%data%", work.jobs[job].title);
+
+    var formattedEmployerTitle = formattedEmployer + formattedTitle;
+    $(".work-entry:last").append(formattedEmployerTitle);
+
+    var formattedLocation =
+    HTMLworkLocation.replace("%data%", work.jobs[job].location);
+    $(".work-entry:last").append(formattedLocation);
+
+    var formattedDates =
+    HTMLworkDates.replace("%data%", work.jobs[job].dates);
+    $(".work-entry:last").append(formattedDates);
+
+    var formattedDescription = 
+    HTMLworkDescription.replace("%data%", work.jobs[job].description);
+    $(".work-entry:last").append(formattedDescription);
+    }
+};
+
+work.display();
+
+//start projects
+var projects = {
+    "projects" : [
+        {
+            "title" : "First Enery Asia",
+            "dates" : "2014",
+            "description" : "A Wordpress website created for a solar energy company",
+            "images" : "images/firstenergyasialogo.png"
+        },
+        {
+            "title" : "Movie Merch",
+            "dates" : "2014",
+            "description" : "An ecommerce website created for my Web Development course",
+            "images" : "images/moviemerchlogo.png"
+        },
+        {
+            "title" : "Dean Burr Design",
+            "dates" : "2014",
+            "description" : "My first personal portfolio website",
+            "images" : "images/dean-burr-design.png"
+        }
+    ]
+};
+
+projects.display = function() {
+    for (var project in projects.projects) {
+        $("#projects").append(HTMLprojectStart);
+
+        var formattedTitle = 
+        HTMLprojectTitle.replace("%data%", projects.projects[project].title);
+        $(".project-entry:last").append(formattedTitle);
+
+        var formattedDates = 
+        HTMLprojectDates.replace("%data%", projects.projects[project].dates);
+        $(".project-entry:last").append(formattedDates);
+
+        var formattedDescription = 
+        HTMLprojectDescription.replace("%data%", projects.projects[project].description);
+        $(".project-entry:last").append(formattedDescription);
+
+        var formattedImage = 
+        HTMLprojectImage.replace("%data%", projects.projects[project].images);
+        $(".project-entry:last").append(formattedImage);
+    }
+};
+
+projects.display();
+
+//start education
+var education = {
+    "schools" : [
+        {
+            "name" : "St Leonards Tafe Institute",
+            "degree" : "Diploma of Web Development",
+            "dates" : "01/01/14 - 01/06/14",
+            "location" : "St Leonards, Sydney, Australia",
+            "major" : "Web Development"
+        },
+        {
+            "name" : "St Leonards Tafe Institute",
+            "degree" : "Certificate IV in Web Design",
+            "dates" : "01/01/13 - 01/12/13",
+            "location" : "St Leonards, Sydney, Australia",
+            "major" : "Web Design"
+        }
+    ],
+    "onlineCourses" : [
+    {
+        "title": "Front-End Web Developer Nanodegree",
+        "school": "Udacity",
+        "dates": "2015 - 2015",
+        "url": "https://www.udacity.com"
+    }
+]
+};
+
+
+education.display = function() {
+    for (var school in education.schools) {
+        $("#education").append(HTMLschoolStart);
+
+        var formattedName = 
+        HTMLschoolName.replace("%data%", education.schools[school].name);
+
+        var formattedDegree = 
+        HTMLschoolDegree.replace("%data%", education.schools[school].degree);
+
+        var formattedSchoolTitle = formattedName + formattedDegree;
+        $(".education-entry:last").append(formattedSchoolTitle);
+
+        var formattedDates = 
+        HTMLschoolDates.replace("%data%", education.schools[school].dates);
+        $(".education-entry:last").append(formattedDates);
+
+        var formattedLocation = 
+        HTMLschoolLocation.replace("%data%", education.schools[school].location);
+        $(".education-entry:last").append(formattedLocation);
+
+        var formattedMajor = 
+        HTMLschoolMajor.replace("%data%", education.schools[school].major);
+        $(".education-entry:last").append(formattedMajor);
+    }
+
+    for (school in education.onlineCourses) {
+        $(".education-entry:last").append(HTMLonlineClasses);
+
+        var formattedTitle = 
+        HTMLonlineTitle.replace("%data%", education.onlineCourses[school].title);
+
+        var formattedSchool = 
+        HTMLonlineSchool.replace("%data%", education.onlineCourses[school].school);
+
+        var formattedOnlineTitle = formattedTitle + formattedSchool;
+        $(".education-entry:last").append(formattedOnlineTitle);
+
+        var formattedDates = 
+        HTMLonlineDates.replace("%data%", education.onlineCourses[school].dates);
+        $(".education-entry:last").append(formattedDates);
+
+        var formattedUrl = 
+        HTMLonlineURL.replace("%data%", education.onlineCourses[school].url);
+        $(".education-entry:last").append(formattedUrl);
+
+    }
+};
+
+education.display();
+
+    //display Google map
+    $("#mapDiv").append(googleMap);
+
